@@ -1,12 +1,13 @@
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class Player : MonoBehaviour
 {
     public float rotationSpeed = 100f; // Adjust this to control how fast the cannon rotates
     public float maxRotationAngle = 60f; // Maximum rotation angle in degrees
 
     private float currentRotation = 0f; // Variable to store current rotation angle
 
+    public Ammus ammusPrefab;
     void Update()
     {
         // Get user input for rotation
@@ -14,6 +15,11 @@ public class PlayerController : MonoBehaviour
 
         // Rotate the player's cannon based on input
         RotateCannon(rotationInput);
+
+        if (Input.GetKeyDown(KeyCode.Space)  || Input.GetMouseButtonDown(0))
+        {
+            Shoot();
+        }
     }
 
     void RotateCannon(float rotationInput)
@@ -29,5 +35,10 @@ public class PlayerController : MonoBehaviour
 
         // Apply rotation to the player's cannon
         transform.localRotation = Quaternion.Euler(0f, 0f, currentRotation);
+    }
+
+    private void Shoot()
+    {
+        Instantiate(this.ammusPrefab, this.transform.position, Quaternion.identity);
     }
 }
