@@ -6,15 +6,15 @@ public class Ammus : MonoBehaviour
 {
     public Vector3 direction;
     public float speed;
-    // Start is called before the first frame update
+    public float lifespan = 1f;
+
     void Start()
     {
-        
+        Destroy(gameObject, lifespan);
+        Debug.Log("Bullet Destroyed in " + lifespan + " seconds.");
     }
-
-    // Update is called once per frame
     void Update()
     {
-        this.transform.position += this.direction * this.speed * Time.deltaTime;
+        this.transform.position +=  this.direction * this.speed * Time.deltaTime;
     }
 }
