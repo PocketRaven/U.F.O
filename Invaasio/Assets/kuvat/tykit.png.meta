@@ -117,8 +117,8 @@ TextureImporter:
         y: 0
         width: 144
         height: 144
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.51194483, y: 0.497636}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -134,19 +134,19 @@ TextureImporter:
       name: tykit_1
       rect:
         serializedVersion: 2
-        x: 144
-        y: 0
-        width: 144
-        height: 144
-      alignment: 9
-      pivot: {x: 0.48674616, y: 0.5176718}
+        x: 145
+        y: 44
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 91dc27db67d7a154c9739dc365c25936
-      internalID: -1638599335
+      spriteID: 1e595312052d9194abadd8d4b1001335
+      internalID: 1831835356
       vertices: []
       indices: 
       edges: []
@@ -163,7 +163,7 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       tykit_0: 1964224476
-      tykit_1: -1638599335
+      tykit_1: 1831835356
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

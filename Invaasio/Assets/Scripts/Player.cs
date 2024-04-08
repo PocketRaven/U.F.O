@@ -8,10 +8,12 @@ public class Player : MonoBehaviour
     public Ammus ammusPrefab;
     public Ammus secondaryAmmusPrefab;
 
-    public float launchOffset = 0.5f; // Adjust this value in the edito
+    public float launchOffset = 0.0f; // Adjust this value in the editor
     public Transform mainCannon;
     public Transform leftCannon;
     public Transform rightCannon;
+    public Transform leftSecondaryCannon;
+    public Transform rightSecondaryCannon;
 
     public float mainCannonBulletSpeed = 10f;
     public float secondaryCannonBulletSpeed = 5f;
@@ -23,45 +25,44 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
         {
+            // Main cannon with a lifespan of 1 second
             Shoot(mainCannon, mainCannonBulletSpeed, ammusPrefab);
 
-            // Shoot from secondary cannons
-            Shoot(leftCannon, secondaryCannonBulletSpeed, secondaryAmmusPrefab);
-            Shoot(rightCannon, secondaryCannonBulletSpeed, secondaryAmmusPrefab);
+            // Secondary cannons with a lifespan of 0.5 seconds
+            Shoot(leftCannon, secondaryCannonBulletSpeed, secondaryAmmusPrefab, 1f);
+            Shoot(rightCannon, secondaryCannonBulletSpeed, secondaryAmmusPrefab, 1f);
+
+            // Newly added secondary cannons with a lifespan of 0.25 seconds
+            Shoot(leftSecondaryCannon, secondaryCannonBulletSpeed, secondaryAmmusPrefab, 0.7f);
+            Shoot(rightSecondaryCannon, secondaryCannonBulletSpeed, secondaryAmmusPrefab, 0.7f);
         }
     }
 
     void RotateCannon(float rotationInput)
     {
         float rotationAmount = -rotationInput * rotationSpeed * Time.deltaTime;
-        float currentRotation = transform.localRotation.eulerAngles.z + rotationAmount;
+        float currentRotation = transform.localEulerAngles.z + rotationAmount;
 
-        // Ensure rotation stays within -180 to 180 degrees
-        if (currentRotation > 180f)
-            currentRotation -= 360f;
+        // Ensure rotation stays within 0 to 360 degrees
+        if (currentRotation > 180f) currentRotation -= 360f;
+        else if (currentRotation < -180f) currentRotation += 360f;
 
         // Clamp the rotation angle
-        float clampedRotation = Mathf.Clamp(currentRotation, -maxRotationAngle, maxRotationAngle);
+        currentRotation = Mathf.Clamp(currentRotation, -maxRotationAngle, maxRotationAngle);
 
         // Set the new rotation
-        transform.localRotation = Quaternion.Euler(0f, 0f, clampedRotation);
+        transform.localEulerAngles = new Vector3(0f, 0f, currentRotation);
     }
 
-    void Shoot(Transform cannon, float bulletSpeed, Ammus bulletPrefab)
+    void Shoot(Transform cannon, float bulletSpeed, Ammus bulletPrefab, float bulletLifespan = 1f)
     {
         Vector3 shootDirection = cannon.up;
-
-        // Calculate the launch position with an offset from the cannon tip
         Vector3 launchPosition = cannon.position + shootDirection * launchOffset;
 
-        // Instantiate the bullet prefab at the adjusted launch position
         Ammus bullet = Instantiate(bulletPrefab, launchPosition, Quaternion.identity);
-
-        // Set bullet properties
         bullet.direction = shootDirection;
         bullet.speed = bulletSpeed;
 
-        // Destroy the bullet after its lifespan
-        Destroy(bullet.gameObject, 1f);
+        Destroy(bullet.gameObject, bulletLifespan);
     }
 }
