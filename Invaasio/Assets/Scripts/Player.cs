@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     public Ammus ammusPrefab;
     public Ammus secondaryAmmusPrefab;
 
-    public float launchOffset = 0.0f; // Adjust this value in the editor
+    public float launchOffset = 0.0f; 
     public Transform mainCannon;
     public Transform leftCannon;
     public Transform rightCannon;
@@ -25,14 +25,14 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
         {
-            // Main cannon with a lifespan of 1 second
+            // Main cannon 
             Shoot(mainCannon, mainCannonBulletSpeed, ammusPrefab);
 
-            // Secondary cannons with a lifespan of 0.5 seconds
+            // Secondary cannons 
             Shoot(leftCannon, secondaryCannonBulletSpeed, secondaryAmmusPrefab, 1f);
             Shoot(rightCannon, secondaryCannonBulletSpeed, secondaryAmmusPrefab, 1f);
 
-            // Newly added secondary cannons with a lifespan of 0.25 seconds
+            // Secondaries secondary cannons
             Shoot(leftSecondaryCannon, secondaryCannonBulletSpeed, secondaryAmmusPrefab, 0.7f);
             Shoot(rightSecondaryCannon, secondaryCannonBulletSpeed, secondaryAmmusPrefab, 0.7f);
         }
@@ -43,14 +43,14 @@ public class Player : MonoBehaviour
         float rotationAmount = -rotationInput * rotationSpeed * Time.deltaTime;
         float currentRotation = transform.localEulerAngles.z + rotationAmount;
 
-        // Ensure rotation stays within 0 to 360 degrees
+        // Rotaatio 0-360 astetta
         if (currentRotation > 180f) currentRotation -= 360f;
         else if (currentRotation < -180f) currentRotation += 360f;
 
-        // Clamp the rotation angle
+        // Rotaatio kulma
         currentRotation = Mathf.Clamp(currentRotation, -maxRotationAngle, maxRotationAngle);
 
-        // Set the new rotation
+        // aseta rotaatio
         transform.localEulerAngles = new Vector3(0f, 0f, currentRotation);
     }
 
