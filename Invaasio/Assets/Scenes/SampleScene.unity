@@ -696,6 +696,57 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8790547914889194525, guid: 54af90489ed84d84b8c2c0cf900bf72b, type: 3}
   m_PrefabInstance: {fileID: 645426530}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1283613308
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1283613310}
+  - component: {fileID: 1283613309}
+  m_Layer: 0
+  m_Name: Invaders
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1283613309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1283613308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ad69c241f94cca419459eced1d48dd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  invaderPrefab: {fileID: 7346705959881204803, guid: a354c2722ea8a35459e0675480e02690, type: 3}
+  strongInvaderPrefab: {fileID: 8118543287293244782, guid: d9366cdf3d073404ebf36ddc011a52fd, type: 3}
+  columnCount: 8
+  rowCount: 13
+  spacing: 1.1
+  speed: 1
+  strongInvaderChance: 0.1
+--- !u!4 &1283613310
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1283613308}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.79, y: 19.66, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1305161859 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8790547914889194525, guid: 54af90489ed84d84b8c2c0cf900bf72b, type: 3}
@@ -897,3 +948,4 @@ SceneRoots:
   - {fileID: 519420032}
   - {fileID: 774287946}
   - {fileID: 2022480891}
+  - {fileID: 1283613310}

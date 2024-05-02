@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Invader : MonoBehaviour
+public class Test : MonoBehaviour
 {
 
-   // public Invader[] prefabs;
+    public Invader[] prefabs;
 
     public int rows = 5;
 
@@ -27,7 +27,7 @@ public class Invader : MonoBehaviour
             for (int col = 0; col < this.columns; col++)
             {
 
-                //Alukset alukset = Instantiate(this.prefabs[row], this.transform);
+                Invader invader = Instantiate(this.prefabs[row], this.transform);
                 //Vector3 position = rowPositioning;
                 //position.x += col * 2.0f;
                 //alukset.transform.localPosition = position;
@@ -38,6 +38,6 @@ public class Invader : MonoBehaviour
 
     //void Update()
     //{
-      //  this.transform.position += _direction * this.speed * Time.deltaTime;
+    //  this.transform.position += _direction * this.speed * Time.deltaTime;
     //}
 }

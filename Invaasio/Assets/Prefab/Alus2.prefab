@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3859598094828316456}
   - component: {fileID: 894101378313944337}
   - component: {fileID: 5968164282597469662}
+  - component: {fileID: 7001666624910616232}
   m_Layer: 0
   m_Name: Alus2
   m_TagString: Untagged
@@ -130,3 +131,16 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7001666624910616232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8118543287293244782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 248c723c13e121243ae884e707552fb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitPoints: 2
