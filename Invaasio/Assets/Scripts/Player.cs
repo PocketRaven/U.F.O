@@ -36,6 +36,10 @@ public class Player : MonoBehaviour
             Shoot(leftSecondaryCannon, secondaryCannonBulletSpeed, secondaryAmmusPrefab, 0.7f);
             Shoot(rightSecondaryCannon, secondaryCannonBulletSpeed, secondaryAmmusPrefab, 0.7f);
         }
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            ResetPlayerRotation();
+        }
     }
 
     void RotateCannon(float rotationInput)
@@ -52,6 +56,13 @@ public class Player : MonoBehaviour
 
         // aseta rotaatio
         transform.localEulerAngles = new Vector3(0f, 0f, currentRotation);
+    }
+    void ResetPlayerRotation()
+    {
+        // Reset the player's rotation Z component to 0
+        Vector3 newRotation = transform.rotation.eulerAngles;
+        newRotation.z = 0f;
+        transform.rotation = Quaternion.Euler(newRotation);
     }
 
     void Shoot(Transform cannon, float bulletSpeed, Ammus bulletPrefab, float bulletLifespan = 1f)

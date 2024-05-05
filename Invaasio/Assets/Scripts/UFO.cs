@@ -3,24 +3,32 @@ using UnityEngine;
 public class UFO : MonoBehaviour
 {
     public int hitPoints = 1; // Default hit points
-    public GameObject explosionPrefab; // Reference to the explosion prefab
+
+    private ScoreManager scoreManager; // Reference to the ScoreManager script
+
+    void Start()
+    {
+        // Get the ScoreManager script component from the GameManager object
+        scoreManager = FindObjectOfType<ScoreManager>();
+    }
 
     public void TakeDamage(int damage)
     {
         hitPoints -= damage;
         if (hitPoints <= 0)
         {
-            Explode();
-            Destroy(gameObject); // Destroy the UFO if hit points drop to 0 or below
-        }
-    }
+            // Call the appropriate method from the ScoreManager script based on the hitPoints value
+            if (damage == 1)
+            {
+                scoreManager.AddScore(10); // Add 1 point for weaker UFO
+            }
+            else if (damage == 2)
+            {
+                scoreManager.AddScore(50); // Add 2 points for stronger UFO
+            }
 
-    void Explode()
-    {
-        if (explosionPrefab != null)
-        {
-            GameObject explosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
-            Destroy(explosion, 0.2f); // Destroy the explosion after 0.5 seconds
+            // Destroy the UFO if hit points drop to 0 or below
+            Destroy(gameObject);
         }
     }
 }
