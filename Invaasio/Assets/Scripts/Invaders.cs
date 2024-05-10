@@ -2,13 +2,13 @@ using UnityEngine;
 
 public class Invaders : MonoBehaviour
 {
-    public GameObject invaderPrefab; // Reference to the regular invader prefab
-    public GameObject strongInvaderPrefab; // Reference to the stronger invader prefab
-    public int columnCount = 5; // Number of columns in the grid
-    public int rowCount = 5; // Number of rows in the grid
+    public GameObject invaderPrefab; // regular invader prefab
+    public GameObject strongInvaderPrefab; // stronger invader prefab
+    public int columnCount = 5; // Number of columns 
+    public int rowCount = 5; // Number of rows 
     public float spacing = 1.5f; // Spacing between invader prefabs
-    public float speed = 1f; // Speed at which the column moves downwards
-    public float strongInvaderChance = 0.1f; // Chance to spawn a stronger invader
+    public float speed = 1f; // Speed 
+    public float strongInvaderChance = 0.1f; // Chance 
 
     void Start()
     {
@@ -40,10 +40,10 @@ public class Invaders : MonoBehaviour
 
     void MoveColumnDown()
     {
-        // Calculate the downward movement
+        // downward movement
         float movementAmount = speed * Time.deltaTime;
 
-        // Move each invader in the column downwards
+        // Move each invader downwards
         foreach (Transform child in transform)
         {
             child.transform.position -= new Vector3(0, movementAmount, 0);
