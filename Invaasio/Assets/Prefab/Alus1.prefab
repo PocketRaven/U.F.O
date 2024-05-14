@@ -144,4 +144,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitPoints: 1
-  explosionPrefab: {fileID: 971071689481807714, guid: 1d1dbff432a559c4ea78c08d43d7ebcc, type: 3}
+  normalInvaderScore: 1
+  strongerInvaderScore: 2
+  rotationSpeed: 10

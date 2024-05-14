@@ -4,7 +4,7 @@ using System.Collections;
 public class UFO : MonoBehaviour
 {
     public int hitPoints = 1;
-
+    public int scoreValue = 1;
     private ScoreManager scoreManager; // Reference to the ScoreManager script
 
     public float rotationSpeed = 10f; // Rotation speed for the UFO
@@ -19,19 +19,10 @@ public class UFO : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        hitPoints -= damage;
-        if (hitPoints <= 0)
+        if (damage > 0)
         {
-            if (damage == 1)
-            {
-                scoreManager.AddScore(1);
-            }
-            else if (damage == 2)
-            {
-                scoreManager.AddScore(5);
-            }
-
-            Destroy(gameObject);
+            scoreManager.AddScore(scoreValue); // Add the score value when the UFO is destroyed
+            Destroy(gameObject); // Destroy the UFO
         }
     }
 
