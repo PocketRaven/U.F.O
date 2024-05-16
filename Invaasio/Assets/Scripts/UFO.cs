@@ -6,6 +6,7 @@ public class UFO : MonoBehaviour
     public int hitPoints = 1;
     public int scoreValue = 1;
     private ScoreManager scoreManager; // Reference to the ScoreManager script
+    public GameObject explosionPrefab;
 
     public float rotationSpeed = 10f; // Rotation speed for the UFO
 
@@ -19,10 +20,26 @@ public class UFO : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        if (damage > 0)
+        hitPoints -= damage;
+        if (hitPoints <= 0)
         {
-            scoreManager.AddScore(scoreValue); // Add the score value when the UFO is destroyed
-            Destroy(gameObject); // Destroy the UFO
+            if (damage == 1)
+            {
+                scoreManager.AddScore(scoreValue);
+            }
+            else if (damage == 2)
+            {
+                scoreManager.AddScore(scoreValue * 2); // Stronger invader gives double score
+            }
+
+            // Instantiate explosion prefab
+            GameObject explosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+
+            // Destroy explosion after 0.5 seconds
+            Destroy(explosion, 0.5f);
+
+            // Destroy the UFO
+            Destroy(gameObject);
         }
     }
 

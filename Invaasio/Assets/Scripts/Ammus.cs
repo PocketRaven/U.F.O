@@ -13,13 +13,13 @@ public class Ammus : MonoBehaviour
         transform.position += direction * speed * Time.deltaTime;
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+   void OnTriggerEnter2D(Collider2D other)
     {
         UFO ufo = other.gameObject.GetComponent<UFO>();
         if (ufo != null)
         {
             ufo.TakeDamage(damage);
-            Destroy(gameObject); // Destroy the projectile upon hitting a UFO
+            Destroy(gameObject);
         }
     }
 }

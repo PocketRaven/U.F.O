@@ -8,6 +8,9 @@ public class Player : MonoBehaviour
     public Ammus ammusPrefab;
     public Ammus secondaryAmmusPrefab;
 
+    public AudioSource shootingAudioSource;
+    public AudioClip shootingSoundEffect;
+
     public float launchOffset = 0.0f; 
     public Transform mainCannon;
     public Transform leftCannon;
@@ -73,6 +76,8 @@ public class Player : MonoBehaviour
         Ammus bullet = Instantiate(bulletPrefab, launchPosition, Quaternion.identity);
         bullet.direction = shootDirection;
         bullet.speed = bulletSpeed;
+
+        shootingAudioSource.PlayOneShot(shootingSoundEffect);
 
         Destroy(bullet.gameObject, bulletLifespan);
     }
