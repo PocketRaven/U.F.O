@@ -146,4 +146,4 @@ MonoBehaviour:
   hitPoints: 1
   scoreValue: 1
   explosionPrefab: {fileID: 971071689481807714, guid: 1d1dbff432a559c4ea78c08d43d7ebcc, type: 3}
-  rotationSpeed: 10
+  rotationSpeed: 100

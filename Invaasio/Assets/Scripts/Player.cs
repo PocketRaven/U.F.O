@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class Player : MonoBehaviour
     public AudioSource shootingAudioSource;
     public AudioClip shootingSoundEffect;
 
-    public float launchOffset = 0.0f; 
+    public float launchOffset = 0.0f;
     public Transform mainCannon;
     public Transform leftCannon;
     public Transform rightCannon;
@@ -21,6 +22,14 @@ public class Player : MonoBehaviour
     public float mainCannonBulletSpeed = 10f;
     public float secondaryCannonBulletSpeed = 5f;
 
+    public Image[] hitPointUI; // Array of Image components representing hit points
+    private int currentHitPoints;
+
+    void Start()
+    {
+        currentHitPoints = hitPointUI.Length;
+    }
+
     void Update()
     {
         float rotationInput = Input.GetAxis("Horizontal");
@@ -28,17 +37,13 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
         {
-            // Main cannon 
             Shoot(mainCannon, mainCannonBulletSpeed, ammusPrefab);
-
-            // Secondary cannons 
             Shoot(leftCannon, secondaryCannonBulletSpeed, secondaryAmmusPrefab, 1f);
             Shoot(rightCannon, secondaryCannonBulletSpeed, secondaryAmmusPrefab, 1f);
-
-            // Secondaries secondary cannons
             Shoot(leftSecondaryCannon, secondaryCannonBulletSpeed, secondaryAmmusPrefab, 0.7f);
             Shoot(rightSecondaryCannon, secondaryCannonBulletSpeed, secondaryAmmusPrefab, 0.7f);
         }
+
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             ResetPlayerRotation();
@@ -50,19 +55,15 @@ public class Player : MonoBehaviour
         float rotationAmount = -rotationInput * rotationSpeed * Time.deltaTime;
         float currentRotation = transform.localEulerAngles.z + rotationAmount;
 
-        // Rotaatio 0-360 astetta
         if (currentRotation > 180f) currentRotation -= 360f;
         else if (currentRotation < -180f) currentRotation += 360f;
 
-        // Rotaatio kulma
         currentRotation = Mathf.Clamp(currentRotation, -maxRotationAngle, maxRotationAngle);
-
-        // aseta rotaatio
         transform.localEulerAngles = new Vector3(0f, 0f, currentRotation);
     }
+
     void ResetPlayerRotation()
     {
-        // Reset the player's rotation Z component to 0
         Vector3 newRotation = transform.rotation.eulerAngles;
         newRotation.z = 0f;
         transform.rotation = Quaternion.Euler(newRotation);
@@ -78,7 +79,15 @@ public class Player : MonoBehaviour
         bullet.speed = bulletSpeed;
 
         shootingAudioSource.PlayOneShot(shootingSoundEffect);
-
         Destroy(bullet.gameObject, bulletLifespan);
+    }
+
+    public void InvaderPassed()
+    {
+        if (currentHitPoints > 0)
+        {
+            currentHitPoints--;
+            hitPointUI[currentHitPoints].enabled = false; // Disable the hit point image
+        }
     }
 }

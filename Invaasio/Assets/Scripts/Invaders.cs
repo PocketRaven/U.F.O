@@ -40,6 +40,7 @@ public class Invaders : MonoBehaviour
 
             // Instantiate the invader prefab at the calculated position
             GameObject newInvader = Instantiate(prefabToSpawn, position, Quaternion.identity);
+            newInvader.AddComponent<InvaderUnit>();
 
             // Add a Rigidbody component to the spawned invader if it doesn't have one
             Rigidbody2D rb = newInvader.GetComponent<Rigidbody2D>();
