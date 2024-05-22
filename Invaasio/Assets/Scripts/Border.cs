@@ -3,7 +3,7 @@ using UnityEngine;
 public class Border : MonoBehaviour
 {
     private int invadersPassed = 0;
-    private int invadersPerHitPoint = 6; // Number of invaders required to reduce one hit point
+    private int invadersPerHitPoint = 10; // Ufoa HP:ta kohden
 
     void OnTriggerEnter2D(Collider2D other)
     {
