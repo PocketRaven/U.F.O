@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+
     public void RestartGame()
     {
         // Reset the time scale in case it was set to 0

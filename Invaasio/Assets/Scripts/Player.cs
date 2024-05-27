@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour
@@ -114,12 +115,23 @@ public class Player : MonoBehaviour
     public void AddScore(int points)
     {
         currentScore += points;
-        // You may want to update your score UI here if you have one
     }
 
     void Victory()
     {
         victoryPanel.SetActive(true); // Show Victory panel
         Time.timeScale = 0; // Stop the game
+    }
+
+    public void RestartGame()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene("GameScene");
+    }
+
+    public void ExitToMainMenu()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene("Menu");
     }
 }
