@@ -3,12 +3,18 @@ using System.Collections;
 
 public class Invaders : MonoBehaviour
 {
-    public GameObject invaderPrefab; // regular invader prefab
-    public GameObject strongInvaderPrefab; // stronger invader prefab
+    public GameObject invaderPrefab; // Regular invader prefab
+    public GameObject strongInvaderPrefab; // Stronger invader prefab
+    public GameObject fastInvaderPrefab; // Faster invader prefab
+
     public int rowCount = 5; // Number of rows 
     public float spacing = 1.5f; // Spacing between invader prefabs
-    public float strongInvaderChance = 0.1f; // Chance 
-    public float fallSpeed = 1f; // Speed at which the invaders fall
+
+    public float strongInvaderChance = 0.1f; // Chance to spawn strong invader
+    public float fastInvaderChance = 0.1f; // Chance to spawn fast invader
+
+    public float fallSpeed = 1f; // Speed at which the regular invaders fall
+    public float fastFallSpeed = 2f; // Speed at which the fast invaders fall
 
     void Start()
     {
@@ -30,9 +36,15 @@ public class Invaders : MonoBehaviour
         for (int i = 0; i < rowCount; i++)
         {
             GameObject prefabToSpawn = invaderPrefab;
-            if (Random.Range(0f, 1f) < strongInvaderChance)
+            float randomValue = Random.Range(0f, 1f);
+
+            if (randomValue < strongInvaderChance)
             {
                 prefabToSpawn = strongInvaderPrefab; // Spawn the strong invader based on chance
+            }
+            else if (randomValue < strongInvaderChance + fastInvaderChance)
+            {
+                prefabToSpawn = fastInvaderPrefab; // Spawn the fast invader based on chance
             }
 
             // Calculate the position for each invader in the row
@@ -51,7 +63,14 @@ public class Invaders : MonoBehaviour
             }
 
             // Add a constant downward velocity to make the invader fall
-            rb.velocity = Vector2.down * fallSpeed;
+            if (prefabToSpawn == fastInvaderPrefab)
+            {
+                rb.velocity = Vector2.down * fastFallSpeed;
+            }
+            else
+            {
+                rb.velocity = Vector2.down * fallSpeed;
+            }
         }
     }
 }

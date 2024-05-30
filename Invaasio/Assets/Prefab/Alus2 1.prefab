@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5968164282597469662}
   - component: {fileID: 7001666624910616232}
   m_Layer: 0
-  m_Name: Alus2
+  m_Name: Alus2 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -70,7 +70,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.39, y: 0.4}
+    oldSize: {x: 0.4, y: 0.4}
     newSize: {x: 0.39, y: 0.4}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -120,7 +120,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -38674181, guid: cd4f302d774804b49a694254a23ed6fd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fbd095e7fe08e514bb47bdbd6405cb17, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -143,7 +143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 248c723c13e121243ae884e707552fb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitPoints: 2
-  scoreValue: 78
+  hitPoints: 1
+  scoreValue: 68
   explosionPrefab: {fileID: 971071689481807714, guid: 1d1dbff432a559c4ea78c08d43d7ebcc, type: 3}
-  rotationSpeed: 100
+  rotationSpeed: 200

@@ -5,7 +5,7 @@ public class Ammus : MonoBehaviour
 {
     public Vector3 direction;
     public float speed;
-    public int damage = 1; // Damage this projectile does to a UFO
+    public int damage = 1; 
 
 
     void Update()

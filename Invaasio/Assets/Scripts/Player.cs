@@ -19,18 +19,18 @@ public class Player : MonoBehaviour
     public Transform rightSecondaryCannon;
     public float mainCannonBulletSpeed = 10f;
     public float secondaryCannonBulletSpeed = 5f;
-    public Image[] hitPointUI; // Array of Image components representing hit points
+    public Image[] hitPointUI; 
     private int currentHitPoints;
-    public GameObject gameOverPanel; // Reference to the Game Over panel
-    public GameObject victoryPanel; // Reference to the Victory panel
-    public int victoryScore = 250; // Score to win the game
+    public GameObject gameOverPanel; 
+    public GameObject victoryPanel; 
+    public int victoryScore = 250; 
     private int currentScore = 0;
 
     void Start()
     {
         currentHitPoints = hitPointUI.Length;
-        gameOverPanel.SetActive(false); // Ensure Game Over panel is hidden at start
-        victoryPanel.SetActive(false); // Ensure Victory panel is hidden at start
+        gameOverPanel.SetActive(false); // Gameover piilossa
+        victoryPanel.SetActive(false); // Voitto ikkuna piilossa
     }
 
     void Update()
@@ -42,10 +42,10 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Shoot(mainCannon, mainCannonBulletSpeed, ammusPrefab);
-            Shoot(leftCannon, secondaryCannonBulletSpeed, secondaryAmmusPrefab, 1f);
-            Shoot(rightCannon, secondaryCannonBulletSpeed, secondaryAmmusPrefab, 1f);
-            Shoot(leftSecondaryCannon, secondaryCannonBulletSpeed, secondaryAmmusPrefab, 0.7f);
-            Shoot(rightSecondaryCannon, secondaryCannonBulletSpeed, secondaryAmmusPrefab, 0.7f);
+            Shoot(leftCannon, secondaryCannonBulletSpeed, secondaryAmmusPrefab, 1.5f);
+            Shoot(rightCannon, secondaryCannonBulletSpeed, secondaryAmmusPrefab, 1.5f);
+            Shoot(leftSecondaryCannon, secondaryCannonBulletSpeed, secondaryAmmusPrefab, 1f);
+            Shoot(rightSecondaryCannon, secondaryCannonBulletSpeed, secondaryAmmusPrefab, 1f);
         }
 
         if (Input.GetKeyDown(KeyCode.UpArrow))
@@ -97,7 +97,7 @@ public class Player : MonoBehaviour
         if (currentHitPoints > 0)
         {
             currentHitPoints--;
-            hitPointUI[currentHitPoints].enabled = false; // Disable the hit point image
+            hitPointUI[currentHitPoints].enabled = false; // HP pois
 
             if (currentHitPoints <= 0)
             {
@@ -108,8 +108,8 @@ public class Player : MonoBehaviour
 
     void GameOver()
     {
-        gameOverPanel.SetActive(true); // Show Game Over panel
-        Time.timeScale = 0; // Stop the game
+        gameOverPanel.SetActive(true); // Näytä gameover
+        Time.timeScale = 0; // Stop 
     }
 
     public void AddScore(int points)
@@ -119,8 +119,8 @@ public class Player : MonoBehaviour
 
     void Victory()
     {
-        victoryPanel.SetActive(true); // Show Victory panel
-        Time.timeScale = 0; // Stop the game
+        victoryPanel.SetActive(true); // Näytä voitto
+        Time.timeScale = 0; // Stop 
     }
 
     public void RestartGame()

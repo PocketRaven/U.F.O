@@ -4,14 +4,15 @@ using UnityEngine.UI;
 
 public class MainMenuManager : MonoBehaviour
 {
-    public GameObject rulesPanel; // Reference to the RulesPanel
-    public GameObject volumePanel; // Reference to the VolumePanel
+    public GameObject rulesPanel; 
+    public GameObject volumePanel;
+    public GameObject thankYouPanel; 
 
     [SerializeField] Slider VolumeSlider;
 
     void Start()
     {
-        // Ensure the panels are hidden at the start
+ 
         if (rulesPanel != null)
         {
             rulesPanel.SetActive(false);
@@ -20,12 +21,15 @@ public class MainMenuManager : MonoBehaviour
         {
             volumePanel.SetActive(false);
         }
-
+        if (thankYouPanel != null)
+        {
+            thankYouPanel.SetActive(false);
+        }
     }
 
     public void StartGame()
     {
-        SceneManager.LoadScene("GameScene"); // Replace "GameScene" with the name of your main game scene
+        SceneManager.LoadScene("GameScene"); 
     }
 
     public void QuitGame()
@@ -65,21 +69,34 @@ public class MainMenuManager : MonoBehaviour
         }
     }
 
+    public void ShowThankYou()
+    {
+        if (thankYouPanel != null)
+        {
+            thankYouPanel.SetActive(true);
+        }
+    }
+
+    public void HideThankYou()
+    {
+        if (thankYouPanel != null)
+        {
+            thankYouPanel.SetActive(false);
+        }
+    }
+
     private void Awake()
     {
         if (PlayerPrefs.HasKey("Volume"))
-            {
+        {
             SetVolume(PlayerPrefs.GetFloat("Volume"));
-            VolumeSlider.value = PlayerPrefs.GetFloat("Volume"); }
+            VolumeSlider.value = PlayerPrefs.GetFloat("Volume");
+        }
     }
 
     public void SetVolume(float volume)
     {
         AudioListener.volume = volume;
         PlayerPrefs.SetFloat("Volume", volume);
-
     }
-
-
 }
-

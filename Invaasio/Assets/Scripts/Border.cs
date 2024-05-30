@@ -3,7 +3,7 @@ using UnityEngine;
 public class Border : MonoBehaviour
 {
     private int invadersPassed = 0;
-    private int invadersPerHitPoint = 10; // Ufoa HP:ta kohden
+    private int invadersPerHitPoint = 10; 
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -18,7 +18,7 @@ public class Border : MonoBehaviour
                 {
                     player.InvaderPassed();
                 }
-                invadersPassed = 0; // Reset the counter after reducing hit points
+                invadersPassed = 0; // Resetoi countteri
             }
             Destroy(other.gameObject);
         }

@@ -5,16 +5,16 @@ public class UFO : MonoBehaviour
 {
     public int hitPoints = 1;
     public int scoreValue = 1;
-    private ScoreManager scoreManager; // Reference to the ScoreManager script
+    private ScoreManager scoreManager; 
     public GameObject explosionPrefab;
 
-    public float rotationSpeed = 10f; // Rotation speed for the UFO
+    public float rotationSpeed = 10f; 
 
     void Start()
     {
         scoreManager = FindObjectOfType<ScoreManager>();
 
-        // Apply rotation to the UFO game object when the game starts
+        //lis‰‰ rotaatio
         SpinRotate();
     }
 
@@ -26,10 +26,6 @@ public class UFO : MonoBehaviour
             if (damage == 1)
             {
                 scoreManager.AddScore(scoreValue);
-            }
-            else if (damage == 2)
-            {
-                scoreManager.AddScore(scoreValue * 2); // Stronger invader gives double score
             }
 
             // Instantiate explosion prefab

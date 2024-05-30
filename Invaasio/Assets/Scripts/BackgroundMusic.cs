@@ -6,7 +6,6 @@ public class BackgroundMusic : MonoBehaviour
 
     void Start()
     {
-        // Play the background music
         audioSource.Play();
     }
 }

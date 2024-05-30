@@ -232,7 +232,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 1148094633}
-  winningScore: 250
+  winningScore: 9999
   winningPanel: {fileID: 2094331107}
 --- !u!4 &43307962
 Transform:
@@ -509,7 +509,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5f1581689ff6f74caa2ac3dd46e0022, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgroundMusicSource: {fileID: 784437065}
 --- !u!4 &250378237
 Transform:
   m_ObjectHideFlags: 0
@@ -891,7 +890,7 @@ Transform:
   m_GameObject: {fileID: 435718580}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.51, y: -5.52, z: 0.00026466523}
+  m_LocalPosition: {x: -0.51, y: -5.67, z: 0.00026466523}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2430,7 +2429,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1071368733}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2444,7 +2443,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 5.1937256}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1102943918
@@ -2647,7 +2646,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1148094632}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2656,7 +2655,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -105.303925, y: -19.065308}
+  m_AnchoredPosition: {x: -105.303925, y: -13.6553955}
   m_SizeDelta: {x: 210.6077, y: 38.1306}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1214169633
@@ -2958,10 +2957,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   invaderPrefab: {fileID: 7346705959881204803, guid: a354c2722ea8a35459e0675480e02690, type: 3}
   strongInvaderPrefab: {fileID: 8118543287293244782, guid: d9366cdf3d073404ebf36ddc011a52fd, type: 3}
+  fastInvaderPrefab: {fileID: 8118543287293244782, guid: 05347b6af6c914f4ea19f817bf99492b, type: 3}
   rowCount: 10
   spacing: 1.3
   strongInvaderChance: 0.1
-  fallSpeed: 1
+  fastInvaderChance: 0.1
+  fallSpeed: 1.3
+  fastFallSpeed: 2.6
 --- !u!4 &1283613310
 Transform:
   m_ObjectHideFlags: 0
@@ -3427,10 +3429,10 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1148094635}
   - {fileID: 2094331110}
-  - {fileID: 1071368734}
   - {fileID: 36787290}
+  - {fileID: 1071368734}
+  - {fileID: 1148094635}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -3932,8 +3934,8 @@ MonoBehaviour:
   rightCannon: {fileID: 837536924}
   leftSecondaryCannon: {fileID: 56879323}
   rightSecondaryCannon: {fileID: 1305161859}
-  mainCannonBulletSpeed: 10
-  secondaryCannonBulletSpeed: 5
+  mainCannonBulletSpeed: 8
+  secondaryCannonBulletSpeed: 4
   hitPointUI:
   - {fileID: 1809177935}
   - {fileID: 1893527674}
