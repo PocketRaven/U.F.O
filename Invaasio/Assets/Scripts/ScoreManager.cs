@@ -4,11 +4,11 @@ using UnityEngine.UI;
 public class ScoreManager : MonoBehaviour
 {
     public Text scoreText;
-    public int winningScore = 250; // Adjust as needed
-    public GameObject winningPanel; // Reference to the winning panel
+    public int winningScore = 250; 
+    public GameObject winningPanel; 
 
     private int score = 0;
-    private bool gameEnded = false; // Flag to track if the game has ended
+    private bool gameEnded = false; 
 
     public void AddScore(int points)
     {
@@ -17,7 +17,7 @@ public class ScoreManager : MonoBehaviour
             score += points;
             UpdateScoreText();
 
-            // Check if the player has reached the winning score
+            // onko pelaaja saavuttanut pisteet
             if (score >= winningScore)
             {
                 ShowWinningPanel();

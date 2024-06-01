@@ -890,7 +890,7 @@ Transform:
   m_GameObject: {fileID: 435718580}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.51, y: -5.67, z: 0.00026466523}
+  m_LocalPosition: {x: -0.51, y: -5.87, z: 0.00026466523}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2962,8 +2962,8 @@ MonoBehaviour:
   spacing: 1.3
   strongInvaderChance: 0.1
   fastInvaderChance: 0.1
-  fallSpeed: 1.3
-  fastFallSpeed: 2.6
+  fallSpeed: 1.5
+  fastFallSpeed: 3
 --- !u!4 &1283613310
 Transform:
   m_ObjectHideFlags: 0
